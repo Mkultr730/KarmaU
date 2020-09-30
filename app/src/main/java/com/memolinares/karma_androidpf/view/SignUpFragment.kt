@@ -8,14 +8,18 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.fragment.app.viewModels
 import androidx.navigation.NavController
+import androidx.navigation.Navigation
 import com.google.firebase.auth.FirebaseAuth
 import com.memolinares.karma_androidpf.R
+import com.memolinares.karma_androidpf.viewModel.LoginViewModel
 
 class SignUpFragment : Fragment() {
 
     lateinit var navController: NavController
     private lateinit var auth: FirebaseAuth
+    val loginViewModel: LoginViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,7 +31,7 @@ class SignUpFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        navController = Navigation.findNavController(view)
         auth = FirebaseAuth.getInstance()
 
         view.findViewById<Button>(R.id.signup).setOnClickListener {
@@ -36,8 +40,15 @@ class SignUpFragment : Fragment() {
             var email = requireView().findViewById<EditText>(R.id.email).text.toString()
 
             if (pass.trim().isNotEmpty() || email.trim().isNotEmpty()) {
-                createUser(email, pass)
-                Toast.makeText(context, email, Toast.LENGTH_LONG).show()
+                loginViewModel.signUp(email, pass).addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                        Toast.makeText(context, "isSuccessful", Toast.LENGTH_LONG).show()
+                        navController.navigate(R.id.action_signUpFragment_to_initFragment)
+                    } else {
+                        Toast.makeText(context, "Error: "+ task.exception, Toast.LENGTH_LONG).show()
+                    }
+                }
+                //Toast.makeText(context, email, Toast.LENGTH_LONG).show()
             } else {
                 Toast.makeText(context, "Input Required", Toast.LENGTH_LONG).show()
             }
@@ -45,15 +56,5 @@ class SignUpFragment : Fragment() {
 
     }
 
-    fun createUser(email:String, password:String) {
-        auth.createUserWithEmailAndPassword(email, password)
-            .addOnCompleteListener { task ->
-                if (task.isSuccessful) {
-                    Toast.makeText(context, "isSuccessful", Toast.LENGTH_LONG).show()
-                } else {
-                    Toast.makeText(context, "Error: "+ task.exception, Toast.LENGTH_LONG).show()
-                }
-            }
-    }
 
 }
