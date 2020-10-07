@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bottom_nav_graph">
+
+    <fragment
+        android:id="@+id/perfil"
+        android:name="com.memolinares.karma_androidpf.view.homeOptions.Perfil"
+        android:label="fragment_perfil"
+        tools:layout="@layout/fragment_perfil" />
+    <fragment
+        android:id="@+id/favorsForm"
+        android:name="com.memolinares.karma_androidpf.view.homeOptions.FavorsForm"
+        android:label="fragment_favors_form"
+        tools:layout="@layout/fragment_favors_form" />
+    <fragment
+        android:id="@+id/favors"
+        android:name="com.memolinares.karma_androidpf.view.homeOptions.favors"
+        android:label="fragment_favors"
+        tools:layout="@layout/fragment_favors" />
+</navigation>

@@ -23,8 +23,8 @@
         android:label="fragment_sign_in"
         tools:layout="@layout/fragment_sign_in" >
         <action
-            android:id="@+id/action_signInFragment_to_initFragment"
-            app:destination="@id/initFragment" />
+            android:id="@+id/action_signInFragment_to_home2"
+            app:destination="@id/home2" />
     </fragment>
     <fragment
         android:id="@+id/signUpFragment"
@@ -35,4 +35,26 @@
             android:id="@+id/action_signUpFragment_to_initFragment"
             app:destination="@id/initFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/home2"
+        android:name="com.memolinares.karma_androidpf.view.homeOptions.Home"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_home2_to_perfil3"
+            app:destination="@id/perfil3" />
+        <action
+            android:id="@+id/action_home2_to_favors2"
+            app:destination="@id/favors2" />
+    </fragment>
+    <fragment
+        android:id="@+id/perfil3"
+        android:name="com.memolinares.karma_androidpf.view.homeOptions.Perfil"
+        android:label="fragment_perfil"
+        tools:layout="@layout/fragment_perfil" />
+    <fragment
+        android:id="@+id/favors2"
+        android:name="com.memolinares.karma_androidpf.view.homeOptions.favors"
+        android:label="fragment_favors"
+        tools:layout="@layout/fragment_favors" />
 </navigation>

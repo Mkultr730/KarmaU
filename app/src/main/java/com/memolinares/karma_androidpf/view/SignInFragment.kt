@@ -10,6 +10,8 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
 import com.google.firebase.auth.FirebaseAuth
 import com.memolinares.karma_androidpf.R
 import com.memolinares.karma_androidpf.viewModel.LoginViewModel
@@ -17,6 +19,7 @@ import com.memolinares.karma_androidpf.viewModel.LoginViewModel
 class SignInFragment : Fragment() {
 
     private lateinit var auth: FirebaseAuth
+    lateinit var navController: NavController
     val loginViewModel: LoginViewModel by viewModels()
 
     override fun onCreateView(
@@ -28,12 +31,12 @@ class SignInFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        navController = Navigation.findNavController(view)
         auth = FirebaseAuth.getInstance()
 
         view.findViewById<Button>(R.id.sign_in).setOnClickListener {
-
-            var pass = requireView().findViewById<EditText>(R.id.pass).text.toString()
+            navController.navigate(R.id.action_signInFragment_to_home2)
+            /*var pass = requireView().findViewById<EditText>(R.id.pass).text.toString()
             var email = requireView().findViewById<EditText>(R.id.email).text.toString()
 
             if (pass.trim().isNotEmpty() || email.trim().isNotEmpty()) {
@@ -41,6 +44,7 @@ class SignInFragment : Fragment() {
                     if (task.isSuccessful) {
                         val user = auth.currentUser
                         Toast.makeText(context, "isSuccessful"+user, Toast.LENGTH_SHORT).show()
+                        navController.navigate(R.id.action_signInFragment_to_home2)
                     } else {
                         Toast.makeText(context, "Error: "+task.exception, Toast.LENGTH_SHORT).show()
                     }
@@ -48,7 +52,7 @@ class SignInFragment : Fragment() {
                 //Toast.makeText(context, email, Toast.LENGTH_LONG).show()
             } else {
                 Toast.makeText(context, "Input Required", Toast.LENGTH_LONG).show()
-            }
+            }*/
         }
     }
 

@@ -2,4 +2,8 @@
     <string name="app_name">Karma-AndroidPF</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_home">Home</string>
+    <string name="title_perfil">Perfil</string>
+    <string name="title_favores">Favores</string>
+    <string name="title_pedir">Pedir Favor</string>
 </resources>

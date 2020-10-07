@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigation_profile"
+        android:icon="@drawable/ic_baseline_person_24"
+        android:title="@string/title_perfil" />
+
+    <item
+        android:id="@+id/navigation_favors"
+        android:icon="@drawable/karma"
+        android:title="@string/title_favores" />
+
+    <item
+        android:id="@+id/navigation_favorsform"
+        android:icon="@drawable/ic_baseline_create_24"
+        android:title="@string/title_pedir" />
+</menu>
