@@ -35,7 +35,6 @@ class SignInFragment : Fragment() {
         auth = FirebaseAuth.getInstance()
 
         view.findViewById<Button>(R.id.sign_in).setOnClickListener {
-            navController.navigate(R.id.action_signInFragment_to_home2)
             var pass = requireView().findViewById<EditText>(R.id.pass).text.toString()
             var email = requireView().findViewById<EditText>(R.id.email).text.toString()
 
