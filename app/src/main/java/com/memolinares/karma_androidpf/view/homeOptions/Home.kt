@@ -8,10 +8,12 @@ import android.view.ViewGroup
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.firebase.auth.FirebaseAuth
 import com.memolinares.karma_androidpf.R
 
 class Home : Fragment() {
     lateinit var navController: NavController
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,20 +30,22 @@ class Home : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         navController = Navigation.findNavController(view)
+        auth = FirebaseAuth.getInstance()
+        val user = auth.currentUser
         view.findViewById<BottomNavigationView>(R.id.bottombar).setOnNavigationItemSelectedListener{ it ->
             when (it.itemId) {
                 R.id.navigation_profile -> {
-                    val profileF = Perfil.newInstance()
+                    val profileF = Perfil.newInstance(user)
                     open(profileF)
                     true
                 }
                 R.id.navigation_favors -> {
-                    val Favors = favors.newInstance()
+                    val Favors = favors.newInstance(user)
                     open(Favors)
                     true
                 }
                 R.id.navigation_favorsform -> {
-                    val FavorsForm = FavorsForm.newInstance()
+                    val FavorsForm = FavorsForm.newInstance(user)
                     open(FavorsForm)
                     true
                 }
