@@ -10,4 +10,6 @@ class LoginRepository  {
     fun signIn(user: User) = auth.signInWithEmailAndPassword(user.email, user.password)
 
     fun createUser(user: User) = auth.createUserWithEmailAndPassword(user.email, user.password)
+
+    fun getCurrentUser() = auth.currentUser
 }

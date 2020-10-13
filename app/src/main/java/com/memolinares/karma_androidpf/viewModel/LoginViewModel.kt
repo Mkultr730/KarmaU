@@ -8,4 +8,5 @@ class LoginViewModel:  ViewModel() {
     val loginRepository = LoginRepository()
     fun signIn (email: String, password: String) = loginRepository.signIn(User(email, password))
     fun signUp (email: String, password: String) = loginRepository.createUser(User(email, password))
+    fun getCurrentUser() = loginRepository.getCurrentUser()
 }

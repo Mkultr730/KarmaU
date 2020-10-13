@@ -12,13 +12,11 @@ import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
-import com.google.firebase.auth.FirebaseAuth
 import com.memolinares.karma_androidpf.R
 import com.memolinares.karma_androidpf.viewModel.LoginViewModel
 
 class SignInFragment : Fragment() {
 
-    private lateinit var auth: FirebaseAuth
     lateinit var navController: NavController
     val loginViewModel: LoginViewModel by viewModels()
 
@@ -32,7 +30,6 @@ class SignInFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         navController = Navigation.findNavController(view)
-        auth = FirebaseAuth.getInstance()
 
         view.findViewById<Button>(R.id.sign_in).setOnClickListener {
             var pass = requireView().findViewById<EditText>(R.id.pass).text.toString()
@@ -41,7 +38,7 @@ class SignInFragment : Fragment() {
             if (pass.trim().isNotEmpty() || email.trim().isNotEmpty()) {
                 loginViewModel.signIn(email, pass).addOnCompleteListener { task ->
                     if (task.isSuccessful) {
-                        val user = auth.currentUser
+                        val user = loginViewModel.getCurrentUser()
                         Toast.makeText(context, "isSuccessful"+user, Toast.LENGTH_SHORT).show()
                         navController.navigate(R.id.action_signInFragment_to_home2)
                     } else {

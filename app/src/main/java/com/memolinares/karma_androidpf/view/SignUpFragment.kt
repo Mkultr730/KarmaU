@@ -18,7 +18,6 @@ import com.memolinares.karma_androidpf.viewModel.LoginViewModel
 class SignUpFragment : Fragment() {
 
     lateinit var navController: NavController
-    private lateinit var auth: FirebaseAuth
     val loginViewModel: LoginViewModel by viewModels()
 
     override fun onCreateView(
@@ -32,7 +31,6 @@ class SignUpFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         navController = Navigation.findNavController(view)
-        auth = FirebaseAuth.getInstance()
 
         view.findViewById<Button>(R.id.signup).setOnClickListener {
 
