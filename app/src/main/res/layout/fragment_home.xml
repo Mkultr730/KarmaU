@@ -11,7 +11,21 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/container2"
-        />
+        >
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="155dp"
+            android:layout_marginTop="80dp"
+            android:enabled="false"
+            android:foregroundTint="#FFFFFF"
+            android:text="Bienvenido a Karma"
+            android:textAlignment="center"
+            android:textColor="#7C077A"
+            android:textSize="28sp"
+            android:textStyle="bold" />
+    </FrameLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottombar"
