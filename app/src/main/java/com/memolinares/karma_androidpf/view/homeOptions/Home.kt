@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.fragment.app.viewModels
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
@@ -41,13 +42,13 @@ class Home : Fragment() {
                     true
                 }
                 R.id.navigation_favors -> {
-                    val Favors = favors.newInstance(user)
-                    open(Favors)
+                    val favors = favors.newInstance(user)
+                    open(favors)
                     true
-                }
+                 }
                 R.id.navigation_favorsform -> {
-                    val FavorsForm = FavorsForm.newInstance(user)
-                    open(FavorsForm)
+                    val favorsForm = FavorsForm.newInstance(user)
+                    open(favorsForm)
                     true
                 }
                 else -> false

@@ -11,7 +11,7 @@
         android:id="@+id/textView"
         android:layout_width="282dp"
         android:layout_height="122dp"
-        android:layout_marginTop="156dp"
+        android:layout_marginTop="80dp"
         android:enabled="false"
         android:foregroundTint="#FFFFFF"
         android:text="Por favor, seleccione el tipo de favor a solicitar"
@@ -20,34 +20,53 @@
         android:textSize="28sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.534"
+        app:layout_constraintHorizontal_bias="0.589"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <RadioGroup
-        android:layout_width="154dp"
-        android:layout_height="102dp"
+        android:id="@+id/radioGroup"
+        android:layout_width="266dp"
+        android:layout_height="189dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="399dp" >
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.133">
 
         <RadioButton
             android:id="@+id/radioButton5"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="RadioButton" />
+            android:layout_height="65dp"
+            android:text="Fotocopias en Graphic" />
 
         <RadioButton
             android:id="@+id/radioButton6"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="RadioButton" />
+            android:layout_height="50dp"
+            android:text="Compra en KM5" />
 
         <RadioButton
             android:id="@+id/radioButton7"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="RadioButton" />
+            android:layout_height="70dp"
+            android:text="Tecer tipo" />
     </RadioGroup>
+
+    <Button
+        android:id="@+id/aceptar"
+        android:layout_width="215dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#7C077A"
+        android:text="Aceptar"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textColorHighlight="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
