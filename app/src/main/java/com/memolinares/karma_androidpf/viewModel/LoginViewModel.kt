@@ -6,7 +6,7 @@ import com.memolinares.karma_androidpf.repository.LoginRepository
 
 class LoginViewModel:  ViewModel() {
     val loginRepository = LoginRepository()
-    fun signIn (email: String, password: String) = loginRepository.signIn(User(email, password))
-    fun signUp (email: String, password: String) = loginRepository.createUser(User(email, password))
+    fun signIn (email: String, password: String) = loginRepository.signIn(User(email, password, "luis"))
+    fun signUp (email: String, password: String) = loginRepository.createUser(User(email, password, "luis"))
     fun getCurrentUser() = loginRepository.getCurrentUser()
 }
