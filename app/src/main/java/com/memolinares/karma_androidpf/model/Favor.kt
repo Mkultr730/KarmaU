@@ -1,4 +1,11 @@
 package com.memolinares.karma_androidpf.model
 
-data class Favor (val puntoE: String = "", val userget: String = "", val userdo: String = "", val stage: String = "", val type: String = "" , val detallesAdicioonales: String = "") {
+data class Favor (
+    val deliver_place: String = "",
+    val user_client: String = "",
+    val user_employee: String = "",
+    val stage: String = "",
+    val type: String = "" ,
+    val details: String = ""
+) {
 }

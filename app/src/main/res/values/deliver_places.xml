@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="deliver_places">
+        <item>BAMBU_I</item>
+        <item>BAMBU_II</item>
+        <item>MESAS_A</item>
+        <item>MESAS_B</item>
+        <item>PLAZA</item>
+        <item>EXPRESS</item>
+        <item>COLISEO</item>
+        <item>M_CANCHA1</item>
+        <item>M_CANCHA2</item>
+        <item>TERRASE</item>
+    </string-array>
+</resources>

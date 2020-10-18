@@ -14,7 +14,7 @@
         android:layout_marginTop="80dp"
         android:enabled="false"
         android:foregroundTint="#FFFFFF"
-        android:text="Por favor, seleccione el tipo de favor a solicitar"
+        android:text="@string/por_favor_seleccione_el_tipo_de_favor_a_solicitar"
         android:textAlignment="center"
         android:textColor="#7C077A"
         android:textSize="18sp"
@@ -28,10 +28,10 @@
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="34dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="128dp"
         android:enabled="false"
         android:foregroundTint="#FFFFFF"
-        android:text="Digite los detalles"
+        android:text="@string/digite_los_detalles"
         android:textAlignment="center"
         android:textColor="#7C077A"
         android:textSize="18sp"
@@ -51,49 +51,69 @@
         app:layout_constraintVertical_bias="0.039">
 
         <RadioButton
-            android:id="@+id/radioButton5"
+            android:id="@+id/Fotocopias"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Fotocopias en Graphic" />
+            android:text="@string/fotocopias_en_graphic" />
 
         <RadioButton
-            android:id="@+id/radioButton6"
+            android:id="@+id/Compra"
             android:layout_width="match_parent"
             android:layout_height="42dp"
-            android:text="Compra en KM5" />
+            android:text="@string/compra_en_km5" />
 
         <RadioButton
-            android:id="@+id/radioButton7"
+            android:id="@+id/Domicilio"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Tecer tipo" />
+            android:text="@string/buscar_domicilio" />
     </RadioGroup>
 
     <Button
         android:id="@+id/aceptar"
         android:layout_width="215dp"
         android:layout_height="50dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="32dp"
         android:backgroundTint="#7C077A"
-        android:text="Aceptar"
+        android:text="@string/aceptar"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"
         android:textColorHighlight="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine" />
+        app:layout_constraintTop_toBottomOf="@+id/details" />
 
     <EditText
-        android:id="@+id/editTextTextMultiLine"
+        android:id="@+id/details"
         android:layout_width="206dp"
         android:layout_height="87dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:gravity="start|top"
         android:inputType="textMultiLine"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+        app:layout_constraintTop_toBottomOf="@+id/textView6"
+        android:autofillHints="" />
+
+    <Spinner
+        android:id="@+id/deliver_place"
+        android:layout_width="169dp"
+        android:layout_height="39dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/lugar_de_entrega"
+        app:layout_constraintBottom_toTopOf="@+id/deliver_place"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

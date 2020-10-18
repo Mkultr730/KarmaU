@@ -6,4 +6,11 @@
     <string name="title_perfil">Perfil</string>
     <string name="title_favores">Favores</string>
     <string name="title_pedir">Pedir Favor</string>
+    <string name="fotocopias_en_graphic">Fotocopias en Graphic</string>
+    <string name="por_favor_seleccione_el_tipo_de_favor_a_solicitar">Por favor, seleccione el tipo de favor a solicitar</string>
+    <string name="digite_los_detalles">Digite los detalles</string>
+    <string name="compra_en_km5">Compra en KM5</string>
+    <string name="buscar_domicilio">Buscar Domicilio</string>
+    <string name="aceptar">Aceptar</string>
+    <string name="lugar_de_entrega">Lugar de entrega:</string>
 </resources>
