@@ -11,7 +11,7 @@
         android:id="@+id/name"
         android:layout_width="0dp"
         android:layout_height="32dp"
-        android:layout_marginTop="84dp"
+        android:layout_marginTop="52dp"
         android:text="Username"
         android:textAlignment="center"
         android:textColor="#7C077A"
@@ -27,7 +27,7 @@
         android:layout_width="0dp"
         android:layout_height="32dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="156dp"
+        android:layout_marginTop="136dp"
         android:text="Estado del Karma"
         android:textAlignment="textStart"
         android:textColor="#7C077A"
@@ -41,7 +41,7 @@
         android:layout_width="0dp"
         android:layout_height="32dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="156dp"
+        android:layout_marginTop="136dp"
         android:layout_marginEnd="32dp"
         android:text="0"
         android:textAlignment="center"
@@ -49,18 +49,17 @@
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/textView5"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ListView
         android:id="@+id/movimientos"
-        android:layout_width="394dp"
-        android:layout_height="464dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="389dp"
+        android:layout_height="425dp"
+        android:layout_marginTop="28dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.47"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/name"
-        app:layout_constraintVertical_bias="0.788" />
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

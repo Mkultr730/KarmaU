@@ -36,9 +36,11 @@ class SignUpFragment : Fragment() {
 
             var pass = requireView().findViewById<EditText>(R.id.pass).text.toString()
             var email = requireView().findViewById<EditText>(R.id.email).text.toString()
+            var nombre = requireView().findViewById<EditText>(R.id.names).text.toString()
+            var roll = requireView().findViewById<EditText>(R.id.radioRoll).text.toString()
 
             if (pass.trim().isNotEmpty() || email.trim().isNotEmpty()) {
-                loginViewModel.signUp(email, pass).addOnCompleteListener { task ->
+                loginViewModel.signUp(nombre, email, pass, roll).addOnCompleteListener { task ->
                     if (task.isSuccessful) {
                         Toast.makeText(context, "isSuccessful", Toast.LENGTH_LONG).show()
                         navController.navigate(R.id.action_signUpFragment_to_initFragment)

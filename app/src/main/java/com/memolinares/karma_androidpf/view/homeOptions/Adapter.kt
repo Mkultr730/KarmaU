@@ -26,7 +26,7 @@ class Adapter(val favors: ArrayList<Favor>): RecyclerView.Adapter<Adapter.ViewHo
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(favor: Favor) {
             itemView.title.text = favor.type
-            itemView.body.text = favor.stage
+            itemView.body.text = "\n Estado ${favor.stage} \n Lugar: ${favor.deliver_place}"
         }
     }
 }

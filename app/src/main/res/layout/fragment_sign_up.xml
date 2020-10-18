@@ -49,7 +49,7 @@
         app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.707" />
+        app:layout_constraintVertical_bias="0.744" />
 
     <EditText
         android:id="@+id/email"
@@ -62,7 +62,42 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:layout_constraintVertical_bias="0.668" />
+        app:layout_constraintTop_toBottomOf="@+id/names" />
+
+    <EditText
+        android:id="@+id/names"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="76dp"
+        android:ems="10"
+        android:hint="Nombre"
+        android:inputType="textEmailAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <RadioGroup
+        android:id="@+id/radioRoll"
+        android:layout_width="114dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pass">
+
+        <RadioButton
+            android:id="@+id/radioEst"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Estudiante" />
+
+        <RadioButton
+            android:id="@+id/radioFun"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Funcionario" />
+    </RadioGroup>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
