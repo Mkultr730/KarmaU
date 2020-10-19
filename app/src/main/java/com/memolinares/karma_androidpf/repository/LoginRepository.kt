@@ -25,5 +25,6 @@ class LoginRepository  {
 
     fun savedUser(user: User) = database.child(FirebaseAuth.getInstance().uid.toString()).setValue(user)
 
-    fun getUser() = database.child(FirebaseAuth.getInstance().uid.toString())
+    fun getUser(userId: String) = database.child(userId)
+    //fun getUser() = database.child(FirebaseAuth.getInstance().uid.toString())
 }

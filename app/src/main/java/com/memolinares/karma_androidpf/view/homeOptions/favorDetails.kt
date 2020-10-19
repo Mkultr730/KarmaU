@@ -36,17 +36,15 @@ class favorDetails(user: FirebaseUser?, favor: Favor) : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        loginViewModel.gtUser().addListenerForSingleValueEvent(object :
+        loginViewModel.getUser(favors.user_client).addListenerForSingleValueEvent(object :
                 ValueEventListener {
                 override fun onCancelled(error: DatabaseError) {
                     TODO("Not yet implemented")
                 }
-
                 override fun onDataChange(snapshot: DataSnapshot) {
-                    view.findViewById<TextView>(R.id.user).text  = snapshot.child("username").toString()
+                    view.findViewById<TextView>(R.id.user).text  = snapshot.child("username").getValue().toString()
                 }
             })
-        //view.findViewById<TextView>(R.id.user).text = favors.user_client
         view.findViewById<TextView>(R.id.type).text = favors.type
         view.findViewById<TextView>(R.id.details).text = favors.details
     }
