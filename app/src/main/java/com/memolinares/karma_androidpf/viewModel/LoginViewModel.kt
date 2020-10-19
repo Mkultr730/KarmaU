@@ -10,5 +10,6 @@ class LoginViewModel:  ViewModel() {
     fun signUp (nombre: String, email: String, password: String, rol: String) = loginRepository.createUser(User(nombre, email, password, 2, rol))
     fun getCurrentUser() = loginRepository.getCurrentUser()
     fun getUser(userId: String) = loginRepository.getUser(userId)
+    fun getUser() = loginRepository.getUser()
     fun savedUser(nombre: String, email: String, password: String, rol: String) = loginRepository.savedUser(User(nombre, email, password, 2, rol))
 }
