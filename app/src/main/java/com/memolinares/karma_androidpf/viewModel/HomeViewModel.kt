@@ -15,6 +15,7 @@ class HomeViewModel: ViewModel()  {
 
     var homeRepository = HomeRepository()
 
+    fun getReference() = homeRepository.getDatabaseR()
     fun getNombre(email: String?){
         val myRef = homeRepository.getDatabaseR()
         var userLiveData = MutableLiveData<List<Favor>>()

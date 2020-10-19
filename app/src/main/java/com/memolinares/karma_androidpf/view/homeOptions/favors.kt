@@ -27,6 +27,7 @@ import kotlinx.android.synthetic.main.fragment_favors.view.*
 class favors (user: FirebaseUser?) : Fragment(), OnFavorClickListener {
     private var adapter = Adapter(ArrayList(), this)
     val favorViewModel: FavorViewModel by viewModels()
+    var user = user
 
     private var postListener: ValueEventListener? = null
     private lateinit var postReference: DatabaseReference
@@ -65,6 +66,11 @@ class favors (user: FirebaseUser?) : Fragment(), OnFavorClickListener {
 
     override fun onItemCLick(favor: Favor, position: Int) {
         Toast.makeText(this.context, "Deliver Place " + favor.deliver_place, Toast.LENGTH_LONG).show()
+        val favorDt = favorDetails.newInstance(user)
+        val transaction = fragmentManager?.beginTransaction()
+        transaction?.replace(R.id.container2,  favorDt)
+        transaction?.addToBackStack(null)
+        transaction?.commit()
     }
 
 }
