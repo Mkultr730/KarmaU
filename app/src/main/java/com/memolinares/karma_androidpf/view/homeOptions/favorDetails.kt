@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DataSnapshot
@@ -53,7 +55,14 @@ class favorDetails(user: FirebaseUser?, favor: Favor) : Fragment() {
 
         view.findViewById<Button>(R.id.submit_favor).setOnClickListener{
             if (user != null) {
-                favorViewModel.setFavor(favors.key, user.uid)
+                if (favors.stage != "Inicial"){
+                    view.findViewById<Button>(R.id.submit_favor).visibility = View.INVISIBLE
+                }else{
+                    Toast.makeText(context, "Ya se ha tomado", Toast.LENGTH_LONG).show()
+                }
+                if (user.uid.equals(favors.user_employee)){
+                    view.findViewById<Button>(R.id.completo).visibility = View.VISIBLE
+                }
             }
         }
     }

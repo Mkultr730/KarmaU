@@ -7,15 +7,20 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import androidx.fragment.app.viewModels
 import com.google.firebase.auth.FirebaseUser
 import com.memolinares.karma_androidpf.R
 import com.memolinares.karma_androidpf.model.Favor
+import com.memolinares.karma_androidpf.viewModel.FavorViewModel
+import com.memolinares.karma_androidpf.viewModel.LoginViewModel
 import kotlinx.android.synthetic.main.fragment_favors_form.view.*
 
 
 class FavorsForm (user: FirebaseUser?, favor: Favor): Fragment() {
     val user  = user
     val fav = favor
+    val FavorVM: FavorViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -35,12 +40,15 @@ class FavorsForm (user: FirebaseUser?, favor: Favor): Fragment() {
             view.findViewById<TextView>(R.id.stage).text = fav.stage
             view.findViewById<TextView>(R.id.Detalles).text = fav.details
         }
-        view.findViewById<Button>(R.id.newFav).setOnClickListener(){
+        view.findViewById<Button>(R.id.newFav).setOnClickListener{
             val newFavor = newFavor.newInstance(user)
             val transaction = fragmentManager?.beginTransaction()
             transaction?.replace(R.id.container2,  newFavor)
             transaction?.addToBackStack(null)
             transaction?.commit()
+        }
+        view.findViewById<Button>(R.id.completo).setOnClickListener{
+            FavorVM.setCheckCl(fav.user_client)
         }
     }
 

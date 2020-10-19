@@ -21,4 +21,7 @@ class FavorRepository {
         Firebase.database.getReference("Favor").child(favorId).child("stage")
             .setValue("Asignado")
     }
+
+    fun setCheckCl(favorId: String) = getRefenceFavor().child(favorId).child("client_check").setValue(true)
+    fun setCheckEmpl(favorId: String) = getRefenceFavor().child(favorId).child("client_check").setValue(true)
 }

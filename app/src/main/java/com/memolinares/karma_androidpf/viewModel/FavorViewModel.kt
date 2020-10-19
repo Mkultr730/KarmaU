@@ -44,7 +44,10 @@ class FavorViewModel: ViewModel() {
 
                     val value: Favor = childDataSnapshot.getValue(Favor::class.java)!!
                     value.key = childDataSnapshot.key.toString()
-                    if (value.stage.equals("Inicial") && value.user_client != auth.uid){
+                    if (value.client_check && value.employee_check){
+                        value.stage = "Completado"
+                    }
+                    if (value.stage != "Completado" && value.user_client != auth.uid){
                         favlist.add(value)
                     }
                 }
@@ -58,4 +61,7 @@ class FavorViewModel: ViewModel() {
 
         })
     }
+
+    fun setCheckCl(favorID: String) = favorRepository.setCheckCl(favorID)
+    fun setCheckEmpl(favorID: String) = favorRepository.setCheckEmpl(favorID)
 }
