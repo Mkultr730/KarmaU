@@ -43,17 +43,9 @@ class favorDetails(user: FirebaseUser?, favor: Favor) : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        if (user != null) {
-            if (favors.stage != "Inicial"){
-                favorViewModel.setFavor(favors.key, user.uid)
-                view.findViewById<Button>(R.id.submit_favor).visibility = View.INVISIBLE
-            }else{
-                Toast.makeText(context, "Ya se ha tomado", Toast.LENGTH_LONG).show()
-            }
-            if (user.uid.equals(favors.user_employee)){
-                FavorVM.setCheckEmpl(favors.key)
-                view.findViewById<Button>(R.id.Completado).visibility = View.VISIBLE
-            }
+        if (favors.stage != "Inicial") {
+            view.findViewById<Button>(R.id.submit_favor).visibility = View.INVISIBLE
+            view.findViewById<Button>(R.id.Completado).visibility = View.VISIBLE
         }
         loginViewModel.getUser(favors.user_client).addListenerForSingleValueEvent(object :
                 ValueEventListener {
@@ -72,12 +64,17 @@ class favorDetails(user: FirebaseUser?, favor: Favor) : Fragment() {
                 if (favors.stage != "Inicial"){
                     favorViewModel.setFavor(favors.key, user.uid)
                     view.findViewById<Button>(R.id.submit_favor).visibility = View.INVISIBLE
+                    view.findViewById<Button>(R.id.Completado).visibility = View.VISIBLE
                 }else{
                     Toast.makeText(context, "Ya se ha tomado", Toast.LENGTH_LONG).show()
                 }
-                if (user.uid.equals(favors.user_employee)){
+            }
+        }
+
+        view.findViewById<Button>(R.id.Completado).setOnClickListener{
+            if (user != null) {
+                if (user.uid.equals(favors.user_employee)) {
                     FavorVM.setCheckEmpl(favors.key)
-                    view.findViewById<Button>(R.id.Completado).visibility = View.VISIBLE
                 }
             }
         }
