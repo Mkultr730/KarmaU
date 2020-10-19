@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import com.google.firebase.auth.FirebaseUser
 import com.memolinares.karma_androidpf.R
 
-class favorDetails : Fragment() {
+class favorDetails(user: FirebaseUser?) : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,6 +23,6 @@ class favorDetails : Fragment() {
     }
 
     companion object {
-        fun newInstance(auth: FirebaseUser?): favors = favors(auth)
+        fun newInstance(auth: FirebaseUser?): favorDetails = favorDetails(auth)
     }
 }
