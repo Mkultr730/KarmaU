@@ -25,15 +25,5 @@ class LoginRepository  {
 
     fun savedUser(user: User) = database.child(FirebaseAuth.getInstance().uid.toString()).setValue(user)
 
-    fun getUser() = database.child(FirebaseAuth.getInstance().uid.toString()).addListenerForSingleValueEvent(object :
-        ValueEventListener {
-        override fun onCancelled(error: DatabaseError) {
-            TODO("Not yet implemented")
-        }
-
-        override fun onDataChange(snapshot: DataSnapshot) {
-            TODO("Not yet implemented")
-        }
-
-    })
+    fun getUser() = database.child(FirebaseAuth.getInstance().uid.toString())
 }
