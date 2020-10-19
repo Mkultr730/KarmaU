@@ -15,5 +15,10 @@ class FavorRepository {
 
     fun getRefenceFavor() = Firebase.database.getReference("Favor")
 
-    fun setFavor(favorId: String, userID: String) = Firebase.database.getReference("Favor").child(favorId).child("user_employee").setValue(userID)
+    fun setFavor(favorId: String, userID: String) {
+        Firebase.database.getReference("Favor").child(favorId).child("user_employee")
+            .setValue(userID)
+        Firebase.database.getReference("Favor").child(favorId).child("stage")
+            .setValue("Asignado")
+    }
 }
