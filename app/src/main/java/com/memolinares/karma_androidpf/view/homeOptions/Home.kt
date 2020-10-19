@@ -49,7 +49,7 @@ class Home : Fragment(), OnFavorClickListener {
                     true
                  }
                 R.id.navigation_favorsform -> {
-                    val favorsForm = FavorsForm.newInstance(user)
+                    val favorsForm = FavorsForm.newInstance(user, Favor("", "", "", "", "", ""))
                     open(favorsForm)
                     true
                 }

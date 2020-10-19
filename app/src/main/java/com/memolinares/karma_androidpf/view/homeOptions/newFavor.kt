@@ -49,7 +49,7 @@ class newFavor (user: FirebaseUser?): Fragment() {
 
                 favorViewModel.askFavor(Favor(deliver_place, user_client, "", "Inicial", type, details))
 
-                val favorsForm = FavorsForm.newInstance(user)
+                val favorsForm = FavorsForm.newInstance(user, Favor(deliver_place, user_client, "", "Inicial", type, details))
                 val transaction = fragmentManager?.beginTransaction()
                 transaction?.replace(R.id.container2,  favorsForm)
                 transaction?.addToBackStack(null)

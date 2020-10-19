@@ -6,12 +6,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.TextView
 import com.google.firebase.auth.FirebaseUser
 import com.memolinares.karma_androidpf.R
+import com.memolinares.karma_androidpf.model.Favor
+import kotlinx.android.synthetic.main.fragment_favors_form.view.*
 
 
-class FavorsForm (user: FirebaseUser?): Fragment() {
+class FavorsForm (user: FirebaseUser?, favor: Favor): Fragment() {
     val user  = user
+    val fav = favor
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -26,6 +30,11 @@ class FavorsForm (user: FirebaseUser?): Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        if (fav.user_client != ""){
+            view.findViewById<TextView>(R.id.tipoF).text = fav.type
+            view.findViewById<TextView>(R.id.stage).text = fav.stage
+            view.findViewById<TextView>(R.id.Detalles).text = fav.details
+        }
         view.findViewById<Button>(R.id.newFav).setOnClickListener(){
             val newFavor = newFavor.newInstance(user)
             val transaction = fragmentManager?.beginTransaction()
@@ -36,7 +45,7 @@ class FavorsForm (user: FirebaseUser?): Fragment() {
     }
 
     companion object {
-        fun newInstance(user: FirebaseUser?): FavorsForm = FavorsForm(user)
+        fun newInstance(user: FirebaseUser?, favor: Favor): FavorsForm = FavorsForm(user, favor)
     }
 
 }

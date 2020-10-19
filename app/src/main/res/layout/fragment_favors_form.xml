@@ -7,27 +7,57 @@
     tools:context=".view.homeOptions.FavorsForm"
     android:id="@+id/frameLayout4">
 
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="162dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="124dp"
+        android:layout_marginTop="392dp"
+        android:enabled="false"
+        android:foregroundTint="#FFFFFF"
+        android:text="Detalles"
+        android:textAlignment="textStart"
+        android:textColor="#7C077A"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/Detalles"
+        android:layout_width="162dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="124dp"
+        android:layout_marginTop="456dp"
+        android:enabled="false"
+        android:foregroundTint="#FFFFFF"
+        android:textAlignment="textEnd"
+        android:textColor="#070707"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <Button
         android:id="@+id/newFav"
         android:layout_width="215dp"
         android:layout_height="50dp"
-        android:layout_marginTop="152dp"
+        android:layout_marginTop="124dp"
         android:backgroundTint="#7C077A"
         android:text="Solicitar nuevo favor"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"
         android:textColorHighlight="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/tipoF"
         android:layout_width="162dp"
         android:layout_height="32dp"
         android:layout_marginStart="180dp"
-        android:layout_marginTop="280dp"
+        android:layout_marginTop="248dp"
         android:enabled="false"
         android:foregroundTint="#FFFFFF"
         android:textAlignment="textEnd"
@@ -38,7 +68,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/stage"
         android:layout_width="162dp"
         android:layout_height="32dp"
         android:layout_marginStart="180dp"
@@ -50,7 +80,7 @@
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/tipoF" />
 
     <TextView
         android:id="@+id/textView"
@@ -72,8 +102,8 @@
         android:id="@+id/textView3"
         android:layout_width="162dp"
         android:layout_height="32dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="280dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="248dp"
         android:enabled="false"
         android:foregroundTint="#FFFFFF"
         android:text="Tipo de favor "

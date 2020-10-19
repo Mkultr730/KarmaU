@@ -8,7 +8,7 @@
     tools:context=".view.SignInFragment">
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/tipoF"
         android:layout_width="0dp"
         android:layout_height="32dp"
         android:layout_marginTop="84dp"
@@ -45,10 +45,10 @@
         android:ems="10"
         android:hint="Email"
         android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="@+id/textView2"
+        app:layout_constraintEnd_toEndOf="@+id/tipoF"
         app:layout_constraintHorizontal_bias="0.512"
-        app:layout_constraintStart_toStartOf="@+id/textView2"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintStart_toStartOf="@+id/tipoF"
+        app:layout_constraintTop_toBottomOf="@+id/tipoF" />
 
     <EditText
         android:id="@+id/pass"
