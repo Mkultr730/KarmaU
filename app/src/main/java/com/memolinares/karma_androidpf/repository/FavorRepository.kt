@@ -24,4 +24,8 @@ class FavorRepository {
 
     fun setCheckCl(favorId: String) = getRefenceFavor().child(favorId).child("client_check").setValue(true)
     fun setCheckEmpl(favorId: String) = getRefenceFavor().child(favorId).child("employee_check").setValue(true)
+    fun completestage(favorId: String) = getRefenceFavor().child(favorId).child("stage").setValue("Completado")
+    fun kamarplus(userId: String) = getRefenceFavor().child(userId).child("karma").setValue((getkarma(userId)+1).toString())
+    fun karmaless(userId: String) = getRefenceFavor().child(userId).child("karma").setValue((getkarma(userId)-2).toString())
+    fun getkarma(userId: String) = getRefenceFavor().child(userId).child("karma").toString().toInt()
 }

@@ -46,6 +46,9 @@ class FavorViewModel: ViewModel() {
                     value.key = childDataSnapshot.key.toString()
                     if (value.client_check && value.employee_check){
                         value.stage = "Completado"
+                        favorRepository.completestage(value.key)
+                        favorRepository.kamarplus(value.user_employee)
+                        favorRepository.karmaless(value.user_client)
                     }
                     if (value.stage != "Completado" && value.user_client != auth.uid){
                         favlist.add(value)
@@ -64,4 +67,5 @@ class FavorViewModel: ViewModel() {
 
     fun setCheckCl(favorID: String) = favorRepository.setCheckCl(favorID)
     fun setCheckEmpl(favorID: String) = favorRepository.setCheckEmpl(favorID)
+    fun completestage(favorID: String) = favorRepository.completestage(favorID)
 }
