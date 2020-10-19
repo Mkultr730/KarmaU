@@ -6,15 +6,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.memolinares.karma_androidpf.R
+import com.memolinares.karma_androidpf.model.Favor
 import com.memolinares.karma_androidpf.viewModel.LoginViewModel
 
-class Home : Fragment() {
+class Home : Fragment(), OnFavorClickListener {
     lateinit var navController: NavController
     val loginViewModel: LoginViewModel by viewModels()
 
@@ -61,6 +63,10 @@ class Home : Fragment() {
         transaction?.replace(R.id.container2,  F)
         transaction?.addToBackStack(null)
         transaction?.commit()
+    }
+
+    override fun onItemCLick(favor: Favor, position: Int) {
+        Toast.makeText(this.context, "Deliver Place " + favor.deliver_place, Toast.LENGTH_LONG).show()
     }
 
 }
