@@ -5,6 +5,7 @@ import android.util.Log
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
@@ -18,10 +19,13 @@ import java.nio.file.Files.list
 class FavorViewModel: ViewModel() {
     var favorLiveData = MutableLiveData<List<Favor>>()
     val favlist = mutableListOf<Favor>()
+    var auth = FirebaseAuth.getInstance()
 
     var favorRepository = FavorRepository()
 
     fun askFavor(favor: Favor) = favorRepository.askFavor(favor)
+
+    fun setFavor(favorId: String, userId: String) = favorRepository.setFavor(favorId, userId)
 
     init {
         getFavor()
@@ -40,7 +44,7 @@ class FavorViewModel: ViewModel() {
 
                     val value: Favor = childDataSnapshot.getValue(Favor::class.java)!!
                     value.key = childDataSnapshot.key.toString()
-                    if (value.stage.equals("Inicial")){
+                    if (value.stage.equals("Inicial") && value.user_client != auth.uid){
                         favlist.add(value)
                     }
                 }

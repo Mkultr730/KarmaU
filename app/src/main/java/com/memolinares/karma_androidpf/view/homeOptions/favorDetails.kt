@@ -16,12 +16,14 @@ import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import com.memolinares.karma_androidpf.R
 import com.memolinares.karma_androidpf.model.Favor
+import com.memolinares.karma_androidpf.viewModel.FavorViewModel
 import com.memolinares.karma_androidpf.viewModel.LoginViewModel
 
 class favorDetails(user: FirebaseUser?, favor: Favor) : Fragment() {
     val favors = favor
     val user = user
     val loginViewModel: LoginViewModel by viewModels()
+    val favorViewModel: FavorViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,7 +52,9 @@ class favorDetails(user: FirebaseUser?, favor: Favor) : Fragment() {
         view.findViewById<TextView>(R.id.details).text = favors.details
 
         view.findViewById<Button>(R.id.submit_favor).setOnClickListener{
-
+            if (user != null) {
+                favorViewModel.setFavor(favors.key, user.uid)
+            }
         }
     }
 
