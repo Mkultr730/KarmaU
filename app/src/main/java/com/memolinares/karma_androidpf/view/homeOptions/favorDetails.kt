@@ -26,6 +26,7 @@ class favorDetails(user: FirebaseUser?, favor: Favor) : Fragment() {
     val user = user
     val loginViewModel: LoginViewModel by viewModels()
     val favorViewModel: FavorViewModel by viewModels()
+    val FavorVM: FavorViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,11 +57,13 @@ class favorDetails(user: FirebaseUser?, favor: Favor) : Fragment() {
         view.findViewById<Button>(R.id.submit_favor).setOnClickListener{
             if (user != null) {
                 if (favors.stage != "Inicial"){
+                    favorViewModel.setFavor(favors.key, user.uid)
                     view.findViewById<Button>(R.id.submit_favor).visibility = View.INVISIBLE
                 }else{
                     Toast.makeText(context, "Ya se ha tomado", Toast.LENGTH_LONG).show()
                 }
                 if (user.uid.equals(favors.user_employee)){
+                    FavorVM.setCheckEmpl(favors.key)
                     view.findViewById<Button>(R.id.completo).visibility = View.VISIBLE
                 }
             }

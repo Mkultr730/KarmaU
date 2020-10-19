@@ -48,7 +48,7 @@ class FavorsForm (user: FirebaseUser?, favor: Favor): Fragment() {
             transaction?.commit()
         }
         view.findViewById<Button>(R.id.completo).setOnClickListener{
-            FavorVM.setCheckCl(fav.user_client)
+            FavorVM.setCheckCl(fav.key)
         }
     }
 
