@@ -22,8 +22,11 @@ class HomeRepository {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
-                if (dataSnapshot.child("email").getValue<String>() == email){
-                    nombre = dataSnapshot.child("username").getValue<String>()!!
+                for (childDataSnapshot in dataSnapshot.children) {
+                    val value: Favor = childDataSnapshot.getValue(Favor::class.java)!!
+                    if (value.equals(email)){
+                        nombre = dataSnapshot.child("username").getValue<String>()!!
+                    }
                 }
             }
         })
