@@ -61,7 +61,7 @@ class favorDetails(user: FirebaseUser?, favor: Favor) : Fragment() {
 
         view.findViewById<Button>(R.id.submit_favor).setOnClickListener{
             if (user != null) {
-                if (favors.stage != "Inicial"){
+                if (favors.stage == "Inicial"){
                     favorViewModel.setFavor(favors.key, user.uid)
                     view.findViewById<Button>(R.id.submit_favor).visibility = View.INVISIBLE
                     view.findViewById<Button>(R.id.Completado).visibility = View.VISIBLE

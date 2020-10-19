@@ -23,5 +23,5 @@ class FavorRepository {
     }
 
     fun setCheckCl(favorId: String) = getRefenceFavor().child(favorId).child("client_check").setValue(true)
-    fun setCheckEmpl(favorId: String) = getRefenceFavor().child(favorId).child("client_check").setValue(true)
+    fun setCheckEmpl(favorId: String) = getRefenceFavor().child(favorId).child("employee_check").setValue(true)
 }
