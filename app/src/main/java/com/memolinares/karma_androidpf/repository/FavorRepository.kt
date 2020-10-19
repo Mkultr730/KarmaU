@@ -32,7 +32,8 @@ class FavorRepository {
     fun completestage(favorId: String) = getRefenceFavor().child(favorId).child("stage").setValue("Completado")
     fun kamarplus(userId: String) = Firebase.database.getReference("User").child(userId).child("karma").setValue((getkarma(userId)+1).toString())
     fun karmaless(userId: String) = Firebase.database.getReference("User").child("karma").setValue((getkarma(userId)-2).toString())
-    fun getkarma(userId: String): Int {
+    fun getkarma(userId: String) = Firebase.database.getReference("User").child(userId).child("karma").toString().toInt()
+    /*: Int {
         var karma: Int = 0
         Firebase.database.getReference("User").child(userId).addListenerForSingleValueEvent(object :
             ValueEventListener {
@@ -45,5 +46,5 @@ class FavorRepository {
             }
         })
         return karma
-    }
+    }*/
 }
