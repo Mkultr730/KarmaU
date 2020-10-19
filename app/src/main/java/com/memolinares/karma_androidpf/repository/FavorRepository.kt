@@ -11,7 +11,6 @@ import com.memolinares.karma_androidpf.model.User
 class FavorRepository {
     val database = Firebase.database.getReference("Favor")
 
-
     fun askFavor(favor: Favor) = database.push().setValue(favor)
 
     fun getRefenceFavor() = Firebase.database.getReference("Favor")

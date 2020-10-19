@@ -33,7 +33,7 @@ class Perfil (user: FirebaseUser?) : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         var nombre = homeViewModel.getNombre(useractual!!.email)
-        requireView().findViewById<TextView>(R.id.name).text = nombre
+        requireView().findViewById<TextView>(R.id.name).text = useractual!!.email
         requireView().findViewById<TextView>(R.id.puntos).text = "2"
 
         // use arrayadapter and define an array
