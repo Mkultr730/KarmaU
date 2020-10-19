@@ -5,9 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.EditText
-import android.widget.Toast
+import android.widget.*
 import androidx.fragment.app.viewModels
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
@@ -31,21 +29,23 @@ class SignUpFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         navController = Navigation.findNavController(view)
+        val radioGroup = view.findViewById<RadioGroup>(R.id.radioRoll)
 
         view.findViewById<Button>(R.id.signup).setOnClickListener {
 
             var pass = requireView().findViewById<EditText>(R.id.pass).text.toString()
             var email = requireView().findViewById<EditText>(R.id.email).text.toString()
             var nombre = requireView().findViewById<EditText>(R.id.names).text.toString()
-            var roll = requireView().findViewById<EditText>(R.id.radioRoll).text.toString()
+            var id: Int = radioGroup.checkedRadioButtonId
 
-            if (pass.trim().isNotEmpty() || email.trim().isNotEmpty()) {
-                loginViewModel.signUp(nombre, email, pass, roll).addOnCompleteListener { task ->
+            if (id!=1 && pass.trim().isNotEmpty() && email.trim().isNotEmpty()) {
+                val radio: RadioButton = view.findViewById(id)
+                loginViewModel.signUp(nombre, email, pass, radio.text.toString()).addOnCompleteListener { task ->
                     if (task.isSuccessful) {
                         Toast.makeText(context, "isSuccessful", Toast.LENGTH_LONG).show()
                         navController.navigate(R.id.action_signUpFragment_to_initFragment)
                     } else {
-                        Toast.makeText(context, "Error: "+ task.exception, Toast.LENGTH_LONG).show()
+                        Toast.makeText(context, "Error: "+ task.exception+email, Toast.LENGTH_LONG).show()
                     }
                 }
                 //Toast.makeText(context, email, Toast.LENGTH_LONG).show()
