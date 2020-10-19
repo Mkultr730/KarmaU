@@ -30,11 +30,11 @@ class FavorRepository {
     fun setCheckCl(favorId: String) = getRefenceFavor().child(favorId).child("client_check").setValue(true)
     fun setCheckEmpl(favorId: String) = getRefenceFavor().child(favorId).child("employee_check").setValue(true)
     fun completestage(favorId: String) = getRefenceFavor().child(favorId).child("stage").setValue("Completado")
-    fun kamarplus(userId: String) = getRefenceFavor().child(userId).child("karma").setValue((getkarma(userId)+1).toString())
-    fun karmaless(userId: String) = getRefenceFavor().child(userId).child("karma").setValue((getkarma(userId)-2).toString())
+    fun kamarplus(userId: String) = Firebase.database.getReference("User").child(userId).child("karma").setValue((getkarma(userId)+1).toString())
+    fun karmaless(userId: String) = Firebase.database.getReference("User").child("karma").setValue((getkarma(userId)-2).toString())
     fun getkarma(userId: String): Int {
         var karma: Int = 0
-        getRefenceFavor().child(userId).addListenerForSingleValueEvent(object :
+        Firebase.database.getReference("User").child(userId).addListenerForSingleValueEvent(object :
             ValueEventListener {
             override fun onCancelled(error: DatabaseError) {
                 TODO("Not yet implemented")

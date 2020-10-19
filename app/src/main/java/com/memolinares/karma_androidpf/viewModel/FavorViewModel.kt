@@ -47,6 +47,7 @@ class FavorViewModel: ViewModel() {
                     if (value.client_check && value.employee_check){
                         value.stage = "Completado"
                         favorRepository.completestage(value.key)
+                        Log.w(ContentValues.TAG, "Karma: "+favorRepository.getkarma(value.user_client))
                         favorRepository.kamarplus(value.user_employee)
                         favorRepository.karmaless(value.user_client)
                     }
