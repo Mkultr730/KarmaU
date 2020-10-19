@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.viewModels
 import com.google.firebase.auth.FirebaseUser
@@ -47,6 +48,10 @@ class favorDetails(user: FirebaseUser?, favor: Favor) : Fragment() {
             })
         view.findViewById<TextView>(R.id.type).text = favors.type
         view.findViewById<TextView>(R.id.details).text = favors.details
+
+        view.findViewById<Button>(R.id.submit_favor).setOnClickListener{
+
+        }
     }
 
     companion object {

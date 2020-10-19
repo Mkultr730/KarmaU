@@ -6,6 +6,7 @@ data class Favor (
     val user_employee: String = "",
     val stage: String = "",
     val type: String = "" ,
-    val details: String = ""
+    val details: String = "",
+    var key: String = ""
 ) {
 }

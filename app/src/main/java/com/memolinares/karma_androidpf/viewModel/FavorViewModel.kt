@@ -37,8 +37,12 @@ class FavorViewModel: ViewModel() {
                 // whenever data at this location is updated.
 
                 for (childDataSnapshot in dataSnapshot.children) {
+
                     val value: Favor = childDataSnapshot.getValue(Favor::class.java)!!
-                    favlist.add(value)
+                    value.key = childDataSnapshot.key.toString()
+                    if (value.stage.equals("Inicial")){
+                        favlist.add(value)
+                    }
                 }
                 favorLiveData.value = favlist
             }
