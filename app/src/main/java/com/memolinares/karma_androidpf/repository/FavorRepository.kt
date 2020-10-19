@@ -13,4 +13,6 @@ class FavorRepository {
 
 
     fun askFavor(favor: Favor) = database.push().setValue(favor)
+
+    fun getRefenceFavor() = Firebase.database.getReference("Favor")
 }

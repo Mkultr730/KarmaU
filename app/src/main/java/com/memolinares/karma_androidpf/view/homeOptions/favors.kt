@@ -7,6 +7,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DataSnapshot
@@ -18,10 +20,13 @@ import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
 import com.memolinares.karma_androidpf.R
 import com.memolinares.karma_androidpf.model.Favor
+import com.memolinares.karma_androidpf.viewModel.FavorViewModel
 import kotlinx.android.synthetic.main.fragment_favors.view.*
 
 class favors (user: FirebaseUser?) : Fragment() {
     private var adapter = Adapter(ArrayList())
+    val favorViewModel: FavorViewModel by viewModels()
+
     private var postListener: ValueEventListener? = null
     private lateinit var postReference: DatabaseReference
     val favlist = mutableListOf<Favor>()
@@ -46,29 +51,10 @@ class favors (user: FirebaseUser?) : Fragment() {
         requireView().favors_recycler.adapter = adapter
         requireView().favors_recycler.layoutManager = LinearLayoutManager(requireContext())
 
-        val database = Firebase.database
-        val myRef = database.getReference("Favor")
-
-        myRef.addValueEventListener(object : ValueEventListener {
-            override fun onDataChange(dataSnapshot: DataSnapshot) {
-                // This method is called once with the initial value and again
-                // whenever data at this location is updated.
-
-                for (childDataSnapshot in dataSnapshot.children) {
-                    val value: Favor = childDataSnapshot.getValue(Favor::class.java)!!
-                    favlist.add(value)
-                }
-                //Log.d(TAG, "Value is: $value")
-                adapter.favors.clear()
-                adapter.favors.addAll(favlist)
-                adapter.notifyDataSetChanged()
-            }
-
-            override fun onCancelled(error: DatabaseError) {
-                // Failed to read value
-                Log.w(TAG, "Failed to read value.", error.toException())
-            }
-
+        favorViewModel.favorLiveData.observe(getViewLifecycleOwner(), Observer {
+            adapter.favors.clear()
+            adapter.favors.addAll(it)
+            adapter.notifyDataSetChanged()
         })
 
     }

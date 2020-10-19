@@ -9,7 +9,7 @@ import com.memolinares.karma_androidpf.model.User
 import com.google.firebase.ktx.Firebase
 
 class LoginRepository  {
-    val database = Firebase.database.getReference("Usuario")
+    val database = Firebase.database.getReference("User")
     var auth = FirebaseAuth.getInstance()
 
     fun signIn(user: User) = auth.signInWithEmailAndPassword(user.email, user.password)
