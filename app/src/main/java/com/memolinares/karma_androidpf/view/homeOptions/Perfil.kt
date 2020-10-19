@@ -51,8 +51,7 @@ class Perfil (user: FirebaseUser?) : Fragment() {
         // use arrayadapter and define an array
         val arrayAdapter: ArrayAdapter<*>
         val users = arrayOf(
-            "Virat Kohli", "Rohit Sharma", "Steve Smith",
-            "Kane Williamson", "Ross Taylor"
+            "Movimiento 1", "Movimiento 2", "Movimiento 3"
         )
 
         // access the listView from xml file

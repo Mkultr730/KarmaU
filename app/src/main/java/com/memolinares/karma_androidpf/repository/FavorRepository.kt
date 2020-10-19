@@ -28,13 +28,13 @@ class FavorRepository {
     }
 
     fun setCheckCl(favorId: String) =
-        getRefenceFavor().child(favorId).child("client_check").setValue(true)
+        Firebase.database.getReference("Favor").child(favorId).child("client_check").setValue(true)
 
     fun setCheckEmpl(favorId: String) =
-        getRefenceFavor().child(favorId).child("employee_check").setValue(true)
+        Firebase.database.getReference("Favor").child(favorId).child("employee_check").setValue(true)
 
     fun completestage(favorId: String) =
-        getRefenceFavor().child(favorId).child("stage").setValue("Completado")
+        Firebase.database.getReference("Favor").child(favorId).child("stage").setValue("Completado")
 
     fun kamarplus(userId: String) =
         Firebase.database.getReference("User").child(userId).child("karma")

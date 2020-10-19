@@ -65,7 +65,6 @@ class FavorViewModel: ViewModel() {
         })
     }
 
-    fun setCheckCl(favorID: String) = favorRepository.setCheckCl(favorID)
     fun setCheckEmpl(favorID: String) = favorRepository.setCheckEmpl(favorID)
     fun completestage(favorID: String) = favorRepository.completestage(favorID)
 }
