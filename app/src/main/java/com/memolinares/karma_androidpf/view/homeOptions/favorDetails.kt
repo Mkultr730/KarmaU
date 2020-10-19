@@ -74,6 +74,7 @@ class favorDetails(user: FirebaseUser?, favor: Favor) : Fragment() {
         view.findViewById<Button>(R.id.Completado).setOnClickListener{
             if (user != null) {
                 if (user.uid.equals(favors.user_employee)) {
+                    Toast.makeText(context, "Prueba "+favors.key, Toast.LENGTH_LONG).show()
                     FavorVM.setCheckEmpl(favors.key)
                 }
             }

@@ -41,7 +41,6 @@ class FavorViewModel: ViewModel() {
                 // whenever data at this location is updated.
 
                 for (childDataSnapshot in dataSnapshot.children) {
-
                     val value: Favor = childDataSnapshot.getValue(Favor::class.java)!!
                     value.key = childDataSnapshot.key.toString()
                     if (value.client_check && value.employee_check){
