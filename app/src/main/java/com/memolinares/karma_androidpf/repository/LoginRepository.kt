@@ -15,7 +15,7 @@ class LoginRepository  {
     fun signIn(user: User) = auth.signInWithEmailAndPassword(user.email, user.password)
 
     fun createUser(user: User): Task<AuthResult> {
-        savedUser(user)
+        //savedUser(user)
         return auth.createUserWithEmailAndPassword(user.email, user.password)
     }
     fun getCurrentUser() = auth.currentUser

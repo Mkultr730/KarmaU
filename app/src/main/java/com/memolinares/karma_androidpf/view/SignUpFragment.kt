@@ -42,6 +42,7 @@ class SignUpFragment : Fragment() {
                 val radio: RadioButton = view.findViewById(id)
                 loginViewModel.signUp(nombre, email, pass, radio.text.toString()).addOnCompleteListener { task ->
                     if (task.isSuccessful) {
+                        loginViewModel.savedUser(nombre, email, pass, radio.text.toString())
                         Toast.makeText(context, "isSuccessful", Toast.LENGTH_LONG).show()
                         navController.navigate(R.id.action_signUpFragment_to_initFragment)
                     } else {

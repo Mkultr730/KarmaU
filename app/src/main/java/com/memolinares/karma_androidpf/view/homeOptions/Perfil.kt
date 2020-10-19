@@ -8,12 +8,16 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.ListView
 import android.widget.TextView
+import androidx.fragment.app.viewModels
 import com.google.firebase.auth.FirebaseUser
 import com.memolinares.karma_androidpf.R
+import com.memolinares.karma_androidpf.viewModel.FavorViewModel
+import com.memolinares.karma_androidpf.viewModel.HomeViewModel
 
 
 class Perfil (user: FirebaseUser?) : Fragment() {
     val useractual = user
+    val homeViewModel: HomeViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -28,8 +32,10 @@ class Perfil (user: FirebaseUser?) : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        var nombre = homeViewModel.getNombre(useractual!!.email)
         requireView().findViewById<TextView>(R.id.name).text = useractual!!.email
         requireView().findViewById<TextView>(R.id.puntos).text = "2"
+
         // use arrayadapter and define an array
         val arrayAdapter: ArrayAdapter<*>
         val users = arrayOf(
