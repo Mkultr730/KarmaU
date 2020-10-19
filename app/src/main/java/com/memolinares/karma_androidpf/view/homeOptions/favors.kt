@@ -66,7 +66,7 @@ class favors (user: FirebaseUser?) : Fragment(), OnFavorClickListener {
 
     override fun onItemCLick(favor: Favor, position: Int) {
         Toast.makeText(this.context, "Deliver Place " + favor.deliver_place, Toast.LENGTH_LONG).show()
-        val favorDt = favorDetails.newInstance(user)
+        val favorDt = favorDetails.newInstance(user, favor)
         val transaction = fragmentManager?.beginTransaction()
         transaction?.replace(R.id.container2,  favorDt)
         transaction?.addToBackStack(null)
